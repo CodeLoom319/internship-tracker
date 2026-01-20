@@ -22,9 +22,8 @@ function App() {
     setInternships(data);
   };
 
-  // ✅ FIXED: Add a new internship with validation
+
   const addInternship = async () => {
-    // 🔴 VALIDATION CHECK
     if (!companyName || !role || !status) {
       setMessage("All fields are required");
       return;
