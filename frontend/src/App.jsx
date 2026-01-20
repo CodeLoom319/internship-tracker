@@ -22,8 +22,14 @@ function App() {
     setInternships(data);
   };
 
-  // Add a new internship using POST request
+  // ✅ FIXED: Add a new internship with validation
   const addInternship = async () => {
+    // 🔴 VALIDATION CHECK
+    if (!companyName || !role || !status) {
+      setMessage("All fields are required");
+      return;
+    }
+
     await fetch(
       `http://127.0.0.1:8000/internships?company_name=${companyName}&role=${role}&status=${status}`,
       { method: "POST" }
